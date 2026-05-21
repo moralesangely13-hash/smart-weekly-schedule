@@ -357,7 +357,12 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
         <div className="flex border-b border-gray-100 px-2 flex-shrink-0 overflow-x-auto">
           <TabButton icon={<StickyNote size={15}/>} label="Notas" active={activeTab==='notes'} onClick={() => setActiveTab('notes')} />
           <TabButton icon={<ImageIcon size={15}/>} label="Inspo" active={activeTab==='inspo'} onClick={() => setActiveTab('inspo')} />
-         
+         <TabButton 
+  icon={<Plus size={15}/>} 
+  label="Links" 
+  active={activeTab==='links'} 
+  onClick={() => setActiveTab('links')} 
+/>
           <TabButton icon={<Sparkles size={15}/>} label="Asistente" active={activeTab==='ai'} onClick={() => setActiveTab('ai')} />
         </div>
 
