@@ -525,12 +525,20 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
   };
 
   const handleUploadImages = async (e) => {
+  try {
     const files = Array.from(e.target.files || []);
     if (files.length === 0) return;
 
+    const imageFiles = files.filter(file => file.type.startsWith('image/'));
+
+    if (imageFiles.length === 0) {
+      alert('Por favor selecciona imágenes válidas.');
+      return;
+    }
+
     const convertedImages = await Promise.all(
-      files.map(file => {
-        return new Promise((resolve) => {
+      imageFiles.map(file => {
+        return new Promise((resolve, reject) => {
           const reader = new FileReader();
 
           reader.onload = () => {
@@ -542,6 +550,7 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
             });
           };
 
+          reader.onerror = () => reject(new Error('No se pudo leer la imagen.'));
           reader.readAsDataURL(file);
         });
       })
@@ -552,7 +561,11 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
     });
 
     e.target.value = '';
-  };
+  } catch (error) {
+    console.error('Image upload error:', error);
+    alert('La imagen es muy pesada o no se pudo subir. Intenta con una imagen más liviana.');
+  }
+};
 
   const handleDeleteImage = (id) => {
     updateTaskData({
