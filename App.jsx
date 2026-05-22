@@ -731,18 +731,17 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
 
           {activeTab === 'images' && (
             <div className="flex flex-col space-y-4 h-full">
-              <label className="bg-pink-500 text-white px-4 py-3 rounded-full text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:bg-pink-400 transition flex-shrink-0">
-                <Upload size={16} />
-                Subir Imágenes
-                <input
-                 <input
-  type="file"
-  accept="image/*"
-  multiple
-  onChange={handleUploadImages}
-  className="hidden"
-/>
-              </label>
+  <label className="bg-pink-500 text-white px-4 py-3 rounded-full text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:bg-pink-400 transition flex-shrink-0">
+  <Upload size={16} />
+  Subir Imágenes
+  <input
+    type="file"
+    accept="image/*"
+    multiple
+    onChange={handleUploadImages}
+    className="hidden"
+  />
+</label>
 
               <div className="flex-1 overflow-y-auto pb-4">
                 {currentData.images.length === 0 ? (
