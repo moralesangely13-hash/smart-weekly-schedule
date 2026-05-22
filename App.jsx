@@ -865,7 +865,7 @@ function SavedNoteCard({ note, onDeleteNote, onDeleteSticker, onDragSticker }) {
         {note.text}
       </p>
 
-      {(note.stickers || []).
+      {(note.stickers || []).map(sticker => (
         <div
           key={sticker.id}
           onMouseDown={(e) => onDragSticker(e, 'saved', sticker.id, noteRef, note.id)}
