@@ -17,7 +17,6 @@ import {
   RotateCcw
 } from 'lucide-react';
 
-// --- DATA: Rutina Original (Intacta) ---
 const SCHEDULE = [
   {
     day: 'Lunes',
@@ -123,6 +122,44 @@ const QUOTES = [
   'Tiny progress still counts.',
   'Your pace is allowed to be gentle.'
 ];
+
+const TIPS_BY_TYPE = {
+  routine: [
+    'Empieza con algo simple: toma agua, lávate la cara y ordena una sola cosa de tu espacio.',
+    'Haz tu rutina sin correr. Primero cuerpo, luego mente, luego tareas.',
+    'No necesitas una mañana perfecta; necesitas una mañana que te ayude a comenzar.'
+  ],
+  work: [
+    'Elige una sola prioridad para este bloque y trabaja 25 minutos sin cambiar de tarea.',
+    'Antes de empezar, escribe: “Hoy solo necesito avanzar en ___”. Eso baja la ansiedad.',
+    'Cierra pestañas que no uses y deja visible solo lo necesario para esta tarea.'
+  ],
+  creative: [
+    'Empieza con una referencia visual y crea una versión simple antes de querer perfeccionarla.',
+    'Haz un mini avance: un boceto, una idea, una prueba o una captura. Eso ya cuenta.',
+    'Guarda inspiración, pero no te quedes atrapada buscando ideas. Crea algo pequeño hoy.'
+  ],
+  exercise: [
+    'Haz 5 minutos de estiramiento y 5 minutos de movimiento suave. No tiene que ser intenso.',
+    'Enfócate en cuello, espalda y piernas si has estado mucho tiempo sentada.',
+    'Pon música suave y muévete sin presión. El objetivo es activar tu cuerpo, no agotarte.'
+  ],
+  skincare: [
+    'Mantén la rutina simple: limpieza, hidratación y protector solar si es de día.',
+    'No mezcles muchos productos nuevos el mismo día. Observa cómo reacciona tu piel.',
+    'Antes de aplicar productos, revisa si tu piel se siente seca, sensible, grasa o normal.'
+  ],
+  play: [
+    'Disfruta este descanso sin culpa. También necesitas momentos para recargar energía.',
+    'Pon un límite suave de tiempo para que el descanso no se convierta en evasión.',
+    'Juega como recompensa, no como escape. Disfrútalo con calma.'
+  ],
+  break: [
+    'Come o descansa lejos de la pantalla aunque sea unos minutos.',
+    'Respira profundo antes de seguir. Tu cuerpo también necesita pausas reales.',
+    'No llenes cada pausa con más tareas. Descansar también es parte del plan.'
+  ]
+};
 
 export default function App() {
   const [activeTask, setActiveTask] = useState(null);
@@ -367,6 +404,7 @@ function WellnessPanel() {
 function TaskModal({ task, onClose, taskState, setTaskState }) {
   const [activeTab, setActiveTab] = useState('notes');
   const [loading, setLoading] = useState(false);
+  const [currentTip, setCurrentTip] = useState(null);
   const [localNote, setLocalNote] = useState('');
   const [linkInput, setLinkInput] = useState('');
   const [draftStickers, setDraftStickers] = useState([]);
@@ -377,8 +415,7 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
   const currentData = {
     notes: Array.isArray(rawData.notes) ? rawData.notes : [],
     images: Array.isArray(rawData.images) ? rawData.images : [],
-    links: Array.isArray(rawData.links) ? rawData.links : [],
-    aiTips: Array.isArray(rawData.aiTips) ? rawData.aiTips : []
+    links: Array.isArray(rawData.links) ? rawData.links : []
   };
 
   const updateTaskData = (newData) => {
@@ -553,35 +590,21 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
     });
   };
 
-  const generateAITip = async () => {
+  const generateAITip = () => {
     setLoading(true);
 
-    const fallbackTips = [
-      `✨ Para "${task.title}", intenta hacerlo con calma y sin buscar perfección.`,
-      `🌸 Una mini meta para este bloque: avanzar solo una cosa pequeña.`,
-      `💖 Respira profundo. Este momento también cuenta como progreso.`,
-      `📝 Antes de empezar, escribe una intención sencilla para esta actividad.`
+    const list = TIPS_BY_TYPE[task.type] || [
+      'Haz esta actividad con calma y sin exigirte perfección.',
+      'Una cosa pequeña hecha hoy vale más que diez ideas sin empezar.',
+      'Respira. Solo enfócate en el siguiente paso.'
     ];
 
+    const randomTip = list[Math.floor(Math.random() * list.length)];
+
     setTimeout(() => {
-      const newTip = {
-        id: Date.now().toString(),
-        text: fallbackTips[Math.floor(Math.random() * fallbackTips.length)],
-        date: new Date().toLocaleDateString()
-      };
-
-      updateTaskData({
-        aiTips: [newTip, ...currentData.aiTips]
-      });
-
+      setCurrentTip(randomTip);
       setLoading(false);
-    }, 700);
-  };
-
-  const handleDeleteTip = (id) => {
-    updateTaskData({
-      aiTips: currentData.aiTips.filter(tip => tip.id !== id)
-    });
+    }, 500);
   };
 
   return (
@@ -617,7 +640,6 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
 
           {activeTab === 'notes' && (
             <div className="flex flex-col space-y-4 h-full">
-
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex-shrink-0">
                 <div
                   ref={draftRef}
@@ -789,39 +811,34 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
           )}
 
           {activeTab === 'ai' && (
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full items-center justify-center text-center space-y-5">
+              <div className="bg-pink-50 border border-pink-100 rounded-[2rem] p-6 w-full shadow-sm">
+                <div className="text-4xl mb-3">✨</div>
+
+                <h4 className="font-bold text-pink-500 mb-3">
+                  Tip para este momento
+                </h4>
+
+                {loading ? (
+                  <div className="flex flex-col items-center gap-3 text-gray-400 py-6">
+                    <Loader2 size={24} className="animate-spin" />
+                    <span className="text-sm italic">Generando un tip bonito...</span>
+                  </div>
+                ) : (
+                  <p className="text-gray-700 text-sm leading-relaxed bg-white rounded-2xl p-5 shadow-sm border border-pink-50 min-h-[100px] flex items-center justify-center">
+                    {currentTip || 'Haz click para recibir un tip útil para esta actividad.'}
+                  </p>
+                )}
+              </div>
+
               <button
                 onClick={generateAITip}
                 disabled={loading}
-                className="w-full py-3 mb-4 rounded-xl text-sm font-bold text-white shadow-sm bg-gray-800 hover:bg-gray-700 flex justify-center items-center gap-2 flex-shrink-0 disabled:opacity-70 transition-colors"
+                className="bg-gray-800 text-white px-6 py-3 rounded-full text-sm font-bold shadow-sm hover:bg-gray-700 transition flex items-center gap-2"
               >
                 {loading ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
-                {loading ? 'Pensando...' : 'Generar Nuevo Tip ✨'}
+                Generar nuevo tip ✨
               </button>
-
-              <div className="flex-1 overflow-y-auto space-y-3 pb-4">
-                {currentData.aiTips.length === 0 && !loading ? (
-                  <p className="text-center text-gray-400 text-sm italic py-10">
-                    Pídele al asistente un tip para esta tarea.
-                  </p>
-                ) : (
-                  currentData.aiTips.map(tip => (
-                    <div key={tip.id} className="bg-pink-50/50 p-4 rounded-2xl shadow-sm border border-pink-100 relative group text-sm text-gray-700 leading-relaxed">
-                      {tip.text}
-                      <span className="text-[10px] text-pink-300 mt-2 block">
-                        {tip.date}
-                      </span>
-
-                      <button
-                        onClick={() => handleDeleteTip(tip.id)}
-                        className="absolute top-2 right-2 text-pink-400 opacity-0 group-hover:opacity-100 bg-white p-1.5 rounded-full hover:bg-pink-100 transition-opacity shadow-sm"
-                      >
-                        <Trash2 size={14} />
-                      </button>
-                    </div>
-                  ))
-                )}
-              </div>
             </div>
           )}
 
