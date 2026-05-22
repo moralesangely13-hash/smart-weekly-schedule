@@ -608,8 +608,7 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
 
   return (
     <div className="fixed inset-0 bg-gray-900/20 backdrop-blur-sm z-50 flex justify-center items-center p-4 sm:p-6 animate-in fade-in duration-300">
-      <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-lg overflow-hidden border border-gray-100 flex flex-col h-[85vh]">
-
+      <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-3xl overflow-hidden border border-gray-100 flex flex-col h-[92vh]">
         <div className={`${task.dayColor.bg} p-6 relative flex-shrink-0`}>
           <button
             onClick={onClose}
@@ -860,9 +859,9 @@ function SavedNoteCard({ note, onDeleteNote, onDeleteSticker, onDragSticker }) {
   return (
     <div
       ref={noteRef}
-      className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 relative group min-h-[170px] overflow-hidden"
+      className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 relative group min-h-[260px] overflow-y-auto custom-scrollbar"
     >
-      <p className="text-sm text-gray-700 whitespace-pre-wrap pr-6 relative z-0">
+      className="text-base text-gray-700 whitespace-pre-wrap pr-6 pb-10 relative z-0 leading-relaxed"
         {note.text}
       </p>
 
