@@ -126,37 +126,127 @@ const TIPS_BY_TYPE = {
   routine: [
     'Empieza con algo simple: toma agua, lávate la cara y ordena una sola cosa de tu espacio.',
     'Haz tu rutina sin correr. Primero cuerpo, luego mente, luego tareas.',
-    'No necesitas una mañana perfecta; necesitas una mañana que te ayude a comenzar.'
+    'No necesitas una mañana perfecta; necesitas una mañana que te ayude a comenzar.',
+    'Abre las cortinas y deja entrar luz natural antes de tocar el teléfono.',
+    'Haz una mini lista de solo 3 cosas importantes para hoy.',
+    'Empieza lento pero constante. La energía llega mientras avanzas.',
+    'Una rutina suave también es una rutina válida.',
+    'Tómate 5 minutos para estirarte antes de comenzar el día.',
+    'No llenes tu mañana de presión. Dale espacio a tu mente.',
+    'Haz primero algo que te haga sentir organizada.',
+    'Respira profundo antes de empezar tus tareas.',
+    'Una mañana tranquila puede cambiar todo tu día.',
+    'No compares tu ritmo con el de nadie más.',
+    'Pequeños hábitos construyen días más ligeros.',
+    'Empieza aunque no tengas motivación todavía.'
   ],
+
   work: [
     'Elige una sola prioridad para este bloque y trabaja 25 minutos sin cambiar de tarea.',
     'Antes de empezar, escribe: “Hoy solo necesito avanzar en ___”. Eso baja la ansiedad.',
-    'Cierra pestañas que no uses y deja visible solo lo necesario para esta tarea.'
+    'Cierra pestañas que no uses y deja visible solo lo necesario para esta tarea.',
+    'Divide la tarea en pasos pequeños y empieza por el más fácil.',
+    'Pon música instrumental suave para mantener enfoque.',
+    'No intentes terminar todo hoy; solo avanza un poco.',
+    'Si te sientes bloqueada, cambia de ambiente por 5 minutos.',
+    'Empieza aunque no tengas ganas. La motivación llega después.',
+    'Evita multitasking durante este bloque.',
+    'Ten solo una pestaña importante abierta.',
+    'Trabaja primero y perfecciona después.',
+    'Lo importante hoy es avanzar, no hacerlo perfecto.',
+    'Un progreso pequeño sigue siendo progreso.',
+    'Haz una pausa corta entre tareas largas.',
+    'Tu enfoque vale más que trabajar muchas horas cansada.'
   ],
+
   creative: [
     'Empieza con una referencia visual y crea una versión simple antes de querer perfeccionarla.',
     'Haz un mini avance: un boceto, una idea, una prueba o una captura. Eso ya cuenta.',
-    'Guarda inspiración, pero no te quedes atrapada buscando ideas. Crea algo pequeño hoy.'
+    'Guarda inspiración, pero no te quedes atrapada buscando ideas. Crea algo pequeño hoy.',
+    'No esperes sentirte inspirada para empezar.',
+    'Tus ideas no tienen que ser perfectas para tener valor.',
+    'Haz algo divertido antes de hacerlo impresionante.',
+    'Prueba colores nuevos sin miedo a equivocarte.',
+    'El primer intento no tiene que verse bonito.',
+    'Crea aunque no tengas energía completa.',
+    'A veces una idea simple termina siendo la mejor.',
+    'Haz primero una versión rápida y luego mejoras.',
+    'No borres todo por pequeños errores.',
+    'La creatividad también necesita descanso.',
+    'Permítete experimentar sin presión.',
+    'Una idea terminada vale más que diez perfectas en tu cabeza.'
   ],
+
   exercise: [
     'Haz 5 minutos de estiramiento y 5 minutos de movimiento suave. No tiene que ser intenso.',
     'Enfócate en cuello, espalda y piernas si has estado mucho tiempo sentada.',
-    'Pon música suave y muévete sin presión. El objetivo es activar tu cuerpo, no agotarte.'
+    'Pon música suave y muévete sin presión. El objetivo es activar tu cuerpo, no agotarte.',
+    'Mover tu cuerpo también ayuda a despejar la mente.',
+    'No necesitas una rutina perfecta para cuidar tu salud.',
+    'Empieza con movimientos suaves si te sientes cansada.',
+    'Respira profundo mientras haces ejercicio.',
+    'Escucha a tu cuerpo, no lo castigues.',
+    'Aunque sean 10 minutos, sigue contando.',
+    'La constancia importa más que la intensidad.',
+    'Haz pausas si lo necesitas.',
+    'No conviertas el ejercicio en castigo.',
+    'Un poco de movimiento ya es mejor que nada.',
+    'Celebra el hecho de presentarte hoy.',
+    'Hazlo por sentirte mejor, no por presión.'
   ],
+
   skincare: [
     'Mantén la rutina simple: limpieza, hidratación y protector solar si es de día.',
     'No mezcles muchos productos nuevos el mismo día. Observa cómo reacciona tu piel.',
-    'Antes de aplicar productos, revisa si tu piel se siente seca, sensible, grasa o normal.'
+    'Antes de aplicar productos, revisa si tu piel se siente seca, sensible, grasa o normal.',
+    'Tu piel también necesita descanso.',
+    'No frotes demasiado fuerte el rostro.',
+    'Haz tu skincare con calma, no como obligación.',
+    'Usa agua tibia en lugar de muy caliente.',
+    'La hidratación hace más diferencia de la que parece.',
+    'Tu piel no tiene que verse perfecta para verse bonita.',
+    'No pruebes demasiados productos al mismo tiempo.',
+    'La constancia ayuda más que usar productos caros.',
+    'Cuida tu piel como parte de tu bienestar.',
+    'No olvides limpiar tus brochas y esponjas.',
+    'Dormir bien también es skincare.',
+    'La paciencia es parte del proceso.'
   ],
+
   play: [
     'Disfruta este descanso sin culpa. También necesitas momentos para recargar energía.',
     'Pon un límite suave de tiempo para que el descanso no se convierta en evasión.',
-    'Juega como recompensa, no como escape. Disfrútalo con calma.'
+    'Juega como recompensa, no como escape. Disfrútalo con calma.',
+    'Descansar también es productivo.',
+    'No todo tu tiempo tiene que generar resultados.',
+    'Permítete disfrutar sin sentir culpa.',
+    'Tu mente también necesita diversión.',
+    'No conviertas tu hobby en presión.',
+    'Disfruta el momento en lugar de pensar en pendientes.',
+    'Está bien tomar pausas largas a veces.',
+    'Relajarte no significa que seas floja.',
+    'La creatividad también nace del descanso.',
+    'Un descanso bonito puede mejorar tu día.',
+    'Recargar energía también es importante.',
+    'Juega porque te hace feliz, no para “merecerlo”.'
   ],
+
   break: [
     'Come o descansa lejos de la pantalla aunque sea unos minutos.',
     'Respira profundo antes de seguir. Tu cuerpo también necesita pausas reales.',
-    'No llenes cada pausa con más tareas. Descansar también es parte del plan.'
+    'No llenes cada pausa con más tareas. Descansar también es parte del plan.',
+    'Levántate un momento y cambia de ambiente.',
+    'Toma agua lentamente y sin prisa.',
+    'Descansar no es perder tiempo.',
+    'Haz una pausa mental antes de continuar.',
+    'Tu cerebro necesita pequeños resets.',
+    'No ignores señales de cansancio.',
+    'Cerrar los ojos unos minutos también ayuda.',
+    'No conviertas todas las pausas en scroll infinito.',
+    'Pausar también es avanzar.',
+    'Respira lento y relaja los hombros.',
+    'Un pequeño descanso puede mejorar tu enfoque.',
+    'No tienes que ser productiva cada minuto.'
   ]
 };
 
