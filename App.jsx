@@ -861,11 +861,11 @@ function SavedNoteCard({ note, onDeleteNote, onDeleteSticker, onDragSticker }) {
       ref={noteRef}
       className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 relative group min-h-[260px] overflow-y-auto custom-scrollbar"
     >
-      className="text-base text-gray-700 whitespace-pre-wrap pr-6 pb-10 relative z-0 leading-relaxed"
+      <p className="text-base text-gray-700 whitespace-pre-wrap pr-6 pb-10 relative z-0 leading-relaxed">
         {note.text}
       </p>
 
-      {(note.stickers || []).map(sticker => (
+      {(note.stickers || []).
         <div
           key={sticker.id}
           onMouseDown={(e) => onDragSticker(e, 'saved', sticker.id, noteRef, note.id)}
