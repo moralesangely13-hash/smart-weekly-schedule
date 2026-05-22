@@ -524,7 +524,43 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
     updateTaskData({ notes: currentData.notes.filter(note => note.id !== id) });
   };
 
-  const handleUploadImages = async (e) => {
+  const compressImage = (file, maxWidth = 900, quality = 0.65) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const img = new Image();
+
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const scale = Math.min(maxWidth / img.width, 1);
+
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+
+        resolve({
+          id: Date.now().toString() + Math.random().toString(),
+          url: compressedBase64,
+          name: file.name,
+          date: new Date().toLocaleString()
+        });
+      };
+
+      img.onerror = reject;
+      img.src = event.target.result;
+    };
+
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+};
+
+const handleUploadImages = async (e) => {
   try {
     const files = Array.from(e.target.files || []);
     if (files.length === 0) return;
@@ -536,38 +572,8 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
       return;
     }
 
-    if (currentData.images.length + imageFiles.length > 3) {
-      alert('Por ahora solo puedes guardar hasta 3 imágenes por tarea.');
-      e.target.value = '';
-      return;
-    }
-
-    const tooLarge = imageFiles.find(file => file.size > 800 * 1024);
-
-    if (tooLarge) {
-      alert('Una imagen es muy pesada. Usa imágenes menores a 800 KB para que la app no se quede en blanco.');
-      e.target.value = '';
-      return;
-    }
-
     const convertedImages = await Promise.all(
-      imageFiles.map(file => {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-
-          reader.onload = () => {
-            resolve({
-              id: Date.now().toString() + Math.random().toString(),
-              url: reader.result,
-              name: file.name,
-              date: new Date().toLocaleString()
-            });
-          };
-
-          reader.onerror = () => reject(new Error('No se pudo leer la imagen.'));
-          reader.readAsDataURL(file);
-        });
-      })
+      imageFiles.map(file => compressImage(file))
     );
 
     updateTaskData({
@@ -577,7 +583,7 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
     e.target.value = '';
   } catch (error) {
     console.error('Image upload error:', error);
-    alert('No se pudo subir la imagen. Intenta con una imagen más liviana.');
+    alert('No se pudo subir la imagen. Intenta con otra imagen.');
     e.target.value = '';
   }
 };
