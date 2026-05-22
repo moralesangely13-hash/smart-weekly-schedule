@@ -23,15 +23,15 @@ const SCHEDULE = [
     theme: 'Curso de Inglés',
     color: { bg: 'bg-[#fdf2f8]', border: 'border-[#fbcfe8]', text: 'text-pink-700', badge: 'bg-white text-pink-500', hover: 'hover:bg-pink-50' },
     tasks: [
-      { id: 'l1', time: '8:30-10:00', title: 'Rutina mañana', type: 'routine' },
-      { id: 'l2', time: '10:00-12:00', title: 'Diseñar clases de inglés', type: 'work' },
-      { id: 'l3', time: '12:00-1:00', title: 'Almuerzo', type: 'break' },
-      { id: 'l4', time: '1:00-2:00', title: 'Recursos y Moodle', type: 'work' },
-      { id: 'l5', time: '2:00-3:00', title: 'Descanso', type: 'break' },
-      { id: 'l6', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 'l7', time: '6:00-7:00', title: 'Cena', type: 'break' },
-      { id: 'l8', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
-      { id: 'l9', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
+      { id: 'l1', time: '8:30-10:00', title: 'Rutina mañana ☀️', type: 'routine' },
+{ id: 'l2', time: '10:00-12:00', title: 'Diseñar clases de inglés 📚', type: 'work' },
+{ id: 'l3', time: '12:00-1:00', title: 'Almuerzo 🍲', type: 'break' },
+{ id: 'l4', time: '1:00-2:00', title: 'Recursos y Moodle 💻', type: 'work' },
+{ id: 'l5', time: '2:00-3:00', title: 'Descanso ☁️', type: 'break' },
+{ id: 'l6', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 'l7', time: '6:00-7:00', title: 'Cena 🍽️', type: 'break' },
+{ id: 'l8', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
+{ id: 'l9', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
     ]
   },
   {
@@ -39,13 +39,13 @@ const SCHEDULE = [
     theme: 'Publicidad y Redes',
     color: { bg: 'bg-[#f0fdf4]', border: 'border-[#bbf7d0]', text: 'text-green-700', badge: 'bg-white text-green-600', hover: 'hover:bg-green-50' },
     tasks: [
-      { id: 'm1', time: '8:30-10:00', title: 'Rutina mañana', type: 'routine' },
-      { id: 'm2', time: '10:00-12:00', title: 'Canva + Anuncios', type: 'work' },
-      { id: 'm3', time: '12:00-1:00', title: 'Almuerzo', type: 'break' },
-      { id: 'm4', time: '1:00-2:00', title: 'Branding y Redes', type: 'work' },
-      { id: 'm5', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 'm6', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
-      { id: 'm7', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
+      { id: 'm1', time: '8:30-10:00', title: 'Rutina mañana ☀️', type: 'routine' },
+{ id: 'm2', time: '10:00-12:00', title: 'Canva + Anuncios 🎨', type: 'work' },
+{ id: 'm3', time: '12:00-1:00', title: 'Almuerzo 🍲', type: 'break' },
+{ id: 'm4', time: '1:00-2:00', title: 'Branding y Redes 📱', type: 'work' },
+{ id: 'm5', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 'm6', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
+{ id: 'm7', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
     ]
   },
   {
@@ -53,13 +53,13 @@ const SCHEDULE = [
     theme: 'Trabajo Online',
     color: { bg: 'bg-[#eff6ff]', border: 'border-[#bfdbfe]', text: 'text-blue-700', badge: 'bg-white text-blue-500', hover: 'hover:bg-blue-50' },
     tasks: [
-      { id: 'x1', time: '8:30-10:00', title: 'Rutina mañana', type: 'routine' },
-      { id: 'x2', time: '10:00-11:00', title: 'Arreglar currículum', type: 'work' },
-      { id: 'x3', time: '11:00-12:00', title: 'Buscar trabajo online', type: 'work' },
-      { id: 'x4', time: '1:00-2:00', title: 'Freelance/Plataformas', type: 'work' },
-      { id: 'x5', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 'x6', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
-      { id: 'x7', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
+      { id: 'x1', time: '8:30-10:00', title: 'Rutina mañana ☀️', type: 'routine' },
+{ id: 'x2', time: '10:00-11:00', title: 'Arreglar currículum 📄', type: 'work' },
+{ id: 'x3', time: '11:00-12:00', title: 'Buscar trabajo online 🔎', type: 'work' },
+{ id: 'x4', time: '1:00-2:00', title: 'Freelance/Plataformas 💼', type: 'work' },
+{ id: 'x5', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 'x6', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
+{ id: 'x7', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
     ]
   },
   {
@@ -67,11 +67,11 @@ const SCHEDULE = [
     theme: 'Curso de Inglés',
     color: { bg: 'bg-[#fffbeb]', border: 'border-[#fde68a]', text: 'text-yellow-700', badge: 'bg-white text-yellow-600', hover: 'hover:bg-yellow-50' },
     tasks: [
-      { id: 'j1', time: '10:00-12:00', title: 'Actividades y materiales', type: 'work' },
-      { id: 'j2', time: '1:00-2:00', title: 'Organizar Moodle', type: 'work' },
-      { id: 'j3', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 'j4', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
-      { id: 'j5', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
+      { id: 'j1', time: '10:00-12:00', title: 'Actividades y materiales 📝', type: 'work' },
+{ id: 'j2', time: '1:00-2:00', title: 'Organizar Moodle 💻', type: 'work' },
+{ id: 'j3', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 'j4', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
+{ id: 'j5', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
     ]
   },
   {
@@ -79,11 +79,11 @@ const SCHEDULE = [
     theme: 'Creatividad y Redes',
     color: { bg: 'bg-[#f5f3ff]', border: 'border-[#ddd6fe]', text: 'text-purple-700', badge: 'bg-white text-purple-500', hover: 'hover:bg-purple-50' },
     tasks: [
-      { id: 'v1', time: '10:00-12:00', title: 'Diseños + Contenido', type: 'work' },
-      { id: 'v2', time: '1:00-2:00', title: 'Branding/Organización', type: 'work' },
-      { id: 'v3', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 'v4', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
-      { id: 'v5', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
+      { id: 'v1', time: '10:00-12:00', title: 'Diseños + Contenido 🎨', type: 'work' },
+{ id: 'v2', time: '1:00-2:00', title: 'Branding/Organización 🗂️', type: 'work' },
+{ id: 'v3', time: '3:00-5:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 'v4', time: '7:00-8:30', title: 'Costura 🧵', type: 'creative' },
+{ id: 'v5', time: '8:30-9:00', title: 'Ejercicio 🧘‍♀️', type: 'exercise' },
     ]
   },
   {
@@ -91,10 +91,10 @@ const SCHEDULE = [
     theme: 'Costura Presencial',
     color: { bg: 'bg-[#fff1f2]', border: 'border-[#fecdd3]', text: 'text-rose-700', badge: 'bg-white text-rose-500', hover: 'hover:bg-rose-50' },
     tasks: [
-      { id: 's1', time: '10:00-1:00', title: 'Curso de costura presencial', type: 'creative' },
-      { id: 's2', time: '4:00-6:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 's3', time: '7:00-8:00', title: 'Práctica ligera Costura', type: 'creative' },
-      { id: 's4', time: '8:00-8:30', title: 'Ejercicio suave 🧘‍♀️', type: 'exercise' },
+      { id: 's1', time: '10:00-1:00', title: 'Curso de costura presencial 🧵', type: 'creative' },
+{ id: 's2', time: '4:00-6:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 's3', time: '7:00-8:00', title: 'Práctica ligera Costura 🪡', type: 'creative' },
+{ id: 's4', time: '8:00-8:30', title: 'Ejercicio suave 🧘‍♀️', type: 'exercise' },
     ]
   },
   {
@@ -103,16 +103,15 @@ const SCHEDULE = [
     color: { bg: 'bg-[#f8fafc]', border: 'border-[#e2e8f0]', text: 'text-slate-700', badge: 'bg-white text-slate-500', hover: 'hover:bg-slate-50' },
     tasks: [
       { id: 'd1', time: '10:00-11:00', title: 'Organizar cuarto 🧹', type: 'routine' },
-      { id: 'd2', time: '11:00-12:00', title: 'Planear semana 📝', type: 'work' },
-      { id: 'd3', time: '1:00-4:00', title: 'Videojuegos 🎮', type: 'play' },
-      { id: 'd4', time: '6:00-7:00', title: 'Skincare largo ✨', type: 'skincare' },
-      { id: 'd5', time: '7:00-8:00', title: 'Ejercicio suave 🧘‍♀️', type: 'exercise' },
+{ id: 'd2', time: '11:00-12:00', title: 'Planear semana 📝', type: 'work' },
+{ id: 'd3', time: '1:00-4:00', title: 'Videojuegos 🎮', type: 'play' },
+{ id: 'd4', time: '6:00-7:00', title: 'Skincare largo 🧴', type: 'skincare' },
+{ id: 'd5', time: '7:00-8:00', title: 'Ejercicio suave 🧘‍♀️', type: 'exercise' },
     ]
   }
 ];
 
-const AVAILABLE_STICKERS = ['✨', '🌸', '💖', '🎀', '🧴', '🧘‍♀️', '🧵', '🎮', '💧', '📝', '☁️', '⭐', '🌙', '💻', '📚', '🦋', '🌷', '🍓', '🐱'];
-
+const AVAILABLE_STICKERS = ['✨', '🌸', '💖', '🎀', '🧴', '🧘‍♀️', '🧵', '🎮', '💧', '📝', '☁️', '⭐', '🌙', '💻', '📚', '🦋', '🌷', '🍓', '🐱', '💄', '💋', '🪞'];
 const QUOTES = [
   'One small step is still progress.',
   'You don’t have to do everything today.',
