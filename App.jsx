@@ -638,16 +638,16 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
 
           {activeTab === 'notes' && (
             <div className="flex flex-col space-y-4 h-full">
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex-shrink-0">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-3 flex-shrink-0">
                 <div
                   ref={draftRef}
-                  className="relative min-h-[210px] bg-[#fffafd] border border-pink-100 rounded-2xl p-4 overflow-hidden"
+                  className="relative min-h-[130px] bg-[#fffafd] border border-pink-100 rounded-2xl p-3 overflow-hidden"
                 >
                   <textarea
                     value={localNote}
                     onChange={(e) => setLocalNote(e.target.value)}
                     placeholder="Escribe tu nota visual..."
-                    className="w-full h-32 text-sm text-gray-700 focus:outline-none resize-none bg-transparent relative z-0"
+                    className="w-full h-20 text-sm text-gray-700 focus:outline-none resize-none bg-transparent relative z-0"
                   />
 
                   {draftStickers.map(sticker => (
@@ -696,7 +696,7 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto space-y-3 pb-4">
+              <div className="flex-1 min-h-[360px] max-h-[520px] overflow-y-auto space-y-3 pb-4 custom-scrollbar">
                 {currentData.notes.length === 0 ? (
                   <p className="text-center text-gray-400 text-sm italic py-10">
                     No hay notas en esta tarea aún.
@@ -859,7 +859,7 @@ function SavedNoteCard({ note, onDeleteNote, onDeleteSticker, onDragSticker }) {
   return (
     <div
       ref={noteRef}
-      className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 relative group min-h-[260px] overflow-y-auto custom-scrollbar"
+      className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 relative group min-h-[180px] max-h-[320px] overflow-y-auto custom-scrollbar"
     >
       <p className="text-base text-gray-700 whitespace-pre-wrap pr-6 pb-10 relative z-0 leading-relaxed">
         {note.text}
