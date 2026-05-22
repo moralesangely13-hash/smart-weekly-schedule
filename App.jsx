@@ -294,10 +294,10 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen bg-[#fdfbf7] font-['Quicksand'] pb-20 relative"
+      className="min-h-screen bg-[#fdfbf7] font-['Quicksand'] pb-16 sm:pb-20 relative overflow-x-clip"
       style={{ backgroundImage: 'radial-gradient(#f1e6d6 1px, transparent 1px)', backgroundSize: '20px 20px' }}
     >
-      <div className="max-w-7xl mx-auto pt-6 px-6 flex flex-wrap justify-center sm:justify-end gap-4 mb-4">
+      <div className="max-w-7xl mx-auto pt-4 sm:pt-6 px-3 sm:px-6 flex flex-wrap justify-center sm:justify-end gap-2 sm:gap-4 mb-4">
         <div className="bg-white/80 backdrop-blur rounded-full px-4 py-2 shadow-sm border border-gray-100 flex items-center gap-3 text-sm text-gray-500">
           <CloudSun size={16} className="text-amber-400" />
           <span>Buen clima para hoy</span>
@@ -333,22 +333,22 @@ export default function App() {
       </div>
 
       <div className="text-center mb-10 px-4">
-        <h1 className="font-['Caveat'] text-6xl text-gray-800 mb-2 mt-4 tracking-tight">
+        <h1 className="font-['Caveat'] text-5xl sm:text-6xl text-gray-800 mb-2 mt-4 tracking-tight">
           Mi Rutina Semanal
         </h1>
-        <p className="text-gray-500 italic bg-white inline-block px-6 py-2 rounded-full shadow-sm border border-pink-50">
+        <p className="text-gray-500 italic bg-white inline-block px-4 sm:px-6 py-2 rounded-full shadow-sm border border-pink-50">
           Balanceada, realista y organizada 🌱
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {SCHEDULE.map((dayData, idx) => (
           <div
             key={idx}
-            className={`${dayData.color.bg} border-2 ${dayData.color.border} rounded-[2rem] p-6 shadow-sm transition-transform hover:-translate-y-1 duration-300`}
+            className={`${dayData.color.bg} border-2 ${dayData.color.border} rounded-[2rem] p-4 sm:p-6 shadow-sm transition-transform hover:-translate-y-1 duration-300`}
           >
             <div className="text-center mb-6">
-              <h2 className={`font-['Caveat'] text-4xl ${dayData.color.text}`}>
+              <h2 className={`font-['Caveat'] text-3xl sm:text-4xl ${dayData.color.text}`}>
                 {dayData.day}
               </h2>
               <span className={`text-[10px] font-bold uppercase tracking-widest ${dayData.color.badge} px-3 py-1 rounded-full shadow-sm mt-2 inline-block`}>
@@ -363,10 +363,10 @@ export default function App() {
                   onClick={() => setActiveTask({ ...task, dayColor: dayData.color })}
                   className={`w-full group flex items-start justify-between text-left py-2.5 px-3 rounded-xl transition-all ${dayData.color.hover} hover:shadow-sm border border-transparent hover:border-black/5 relative overflow-hidden`}
                 >
-                  <span className={`font-bold ${dayData.color.text} w-24 text-xs mt-0.5 shrink-0`}>
+                  <span className={`font-bold ${dayData.color.text} w-20 sm:w-24 text-[11px] sm:text-xs mt-0.5 shrink-0`}>
                     {task.time}
                   </span>
-                  <span className="text-sm text-gray-700 flex-1 pr-6">
+                  <span className="text-sm text-gray-700 flex-1 pr-4">
                     {task.title}
                   </span>
                   <div className="absolute right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1">
@@ -731,12 +731,12 @@ const handleUploadImages = async (e) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-900/20 backdrop-blur-sm z-50 flex justify-center items-center p-4 sm:p-6 animate-in fade-in duration-300">
-      <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-3xl overflow-hidden border border-gray-100 flex flex-col h-[92vh]">
-        <div className={`${task.dayColor.bg} p-6 relative flex-shrink-0`}>
+    <div className="fixed inset-0 bg-gray-900/30 backdrop-blur-sm z-50 flex justify-center items-end sm:items-center p-2 sm:p-6 animate-in fade-in duration-300">
+      <div className="bg-white rounded-t-[2rem] sm:rounded-[2.5rem] shadow-2xl w-full max-w-3xl overflow-hidden border border-gray-100 flex flex-col h-[96dvh] sm:h-[92vh]">
+        <div className={`${task.dayColor.bg} p-4 sm:p-6 relative flex-shrink-0`}>
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 bg-white/50 hover:bg-white rounded-full p-2 text-gray-500 transition-colors shadow-sm"
+            className="absolute top-3 sm:top-6 right-3 sm:right-6 bg-white/50 hover:bg-white rounded-full p-2 text-gray-500 transition-colors shadow-sm"
           >
             <X size={20} />
           </button>
@@ -745,7 +745,7 @@ const handleUploadImages = async (e) => {
             <span className={`inline-block px-3 py-1 rounded-full bg-white/60 text-xs font-bold mb-3 ${task.dayColor.text} shadow-sm`}>
               {task.time}
             </span>
-            <h3 className="font-['Caveat'] text-4xl text-gray-800 leading-tight">
+            <h3 className="font-['Caveat'] text-3xl sm:text-4xl text-gray-800 leading-tight">
               {task.title}
             </h3>
           </div>
@@ -758,7 +758,7 @@ const handleUploadImages = async (e) => {
           <TabButton icon={<Sparkles size={15} />} label="Asistente" active={activeTab === 'ai'} onClick={() => setActiveTab('ai')} />
         </div>
 
-        <div className="p-5 overflow-y-auto bg-[#fafafa]/50 flex-1 relative custom-scrollbar">
+        <div className="p-3 sm:p-5 overflow-y-auto bg-[#fafafa]/50 flex-1 relative custom-scrollbar">
 
           {activeTab === 'notes' && (
             <div className="flex flex-col space-y-4 h-full">
@@ -800,12 +800,12 @@ const handleUploadImages = async (e) => {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-3 justify-center">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 justify-center max-h-28 overflow-y-auto pr-1 custom-scrollbar">
                   {AVAILABLE_STICKERS.map(emoji => (
                     <button
                       key={emoji}
                       onClick={() => addDraftSticker(emoji)}
-                      className="text-2xl hover:scale-125 transition-transform p-1 rounded-lg hover:bg-pink-50"
+                      className="text-2xl hover:scale-125 transition-transform p-1.5 rounded-lg hover:bg-pink-50"
                     >
                       {emoji}
                     </button>
@@ -823,7 +823,7 @@ const handleUploadImages = async (e) => {
               <div className="flex-1 min-h-[360px] max-h-[520px] overflow-y-auto space-y-3 pb-4 custom-scrollbar">
                 {currentData.notes.length === 0 ? (
                   <p className="text-center text-gray-400 text-sm italic py-10">
-                    No hay notas en esta tarea aún.
+                    No hay notas todavía. Añade una nota o sticker para empezar ✨.
                   </p>
                 ) : (
                   currentData.notes.map(note => (
@@ -885,7 +885,7 @@ const handleUploadImages = async (e) => {
 
           {activeTab === 'links' && (
             <div className="flex flex-col space-y-4 h-full">
-              <div className="flex gap-2 flex-shrink-0">
+              <div className="flex flex-col sm:flex-row gap-2 flex-shrink-0">
                 <input
                   type="text"
                   value={linkInput}
@@ -895,7 +895,7 @@ const handleUploadImages = async (e) => {
                 />
                 <button
                   onClick={handleAddLink}
-                  className="bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1 hover:bg-pink-400 shadow-sm"
+                  className="bg-pink-500 text-white px-4 py-3 sm:py-2 rounded-full text-sm font-bold flex items-center justify-center gap-1 hover:bg-pink-400 shadow-sm"
                 >
                   <Plus size={16} /> Añadir
                 </button>
