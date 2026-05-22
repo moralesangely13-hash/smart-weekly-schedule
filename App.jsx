@@ -722,12 +722,13 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
                 <Upload size={16} />
                 Subir Imágenes
                 <input
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={handleUploadImages}
-                  className="hidden"
-                />
+                 <input
+  type="file"
+  accept="image/*"
+  multiple
+  onChange={handleUploadImages}
+  className="hidden"
+/>
               </label>
 
               <div className="flex-1 overflow-y-auto pb-4">
