@@ -536,6 +536,20 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
       return;
     }
 
+    if (currentData.images.length + imageFiles.length > 3) {
+      alert('Por ahora solo puedes guardar hasta 3 imágenes por tarea.');
+      e.target.value = '';
+      return;
+    }
+
+    const tooLarge = imageFiles.find(file => file.size > 800 * 1024);
+
+    if (tooLarge) {
+      alert('Una imagen es muy pesada. Usa imágenes menores a 800 KB para que la app no se quede en blanco.');
+      e.target.value = '';
+      return;
+    }
+
     const convertedImages = await Promise.all(
       imageFiles.map(file => {
         return new Promise((resolve, reject) => {
@@ -563,7 +577,8 @@ function TaskModal({ task, onClose, taskState, setTaskState }) {
     e.target.value = '';
   } catch (error) {
     console.error('Image upload error:', error);
-    alert('La imagen es muy pesada o no se pudo subir. Intenta con una imagen más liviana.');
+    alert('No se pudo subir la imagen. Intenta con una imagen más liviana.');
+    e.target.value = '';
   }
 };
 
